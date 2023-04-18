@@ -49,12 +49,6 @@ HOMEWORK_VERDICTS = {
     'rejected': 'Работа проверена: у ревьюера есть замечания.'
 }
 
-# Прокомментируй пожалуйста такой вариант. Минусы и плюсы
-# def check_tokens():
-#     """Проверяет наличие необходимых переменных окружения."""
-#     tokens = [PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID]
-#     return all(tokens)
-
 
 def check_tokens():
     """Проверяет наличие необходимых переменных окружения."""
@@ -65,6 +59,7 @@ def check_tokens():
     }
     for token in tokens.values():
         if token is None:
+            logger.error(f'Отсутствует токен: {token}')
             return False
     return True
 
